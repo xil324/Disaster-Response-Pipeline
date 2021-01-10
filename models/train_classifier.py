@@ -41,7 +41,9 @@ def load_data(database_filepath):
 
 def tokenize(text):
     '''
-    not really used in building a model but this funciton tokenize the message and lemmatize the words
+    Word tokenize the message and lemmatize the words
+    input: text
+    output: a list of words from the text
     '''
     text = re.sub(r"[^a-zA-Z0-9]", " ", text.lower())
     tokens = word_tokenize(text)
@@ -75,6 +77,8 @@ def build_model():
 
 def evaluate_model(model, X_test, y_test):
     '''
+    Evaluate model performance
+    input: model, test data
     output: classification report for each category
     '''
     y_pred = model.predict(X_test)
@@ -87,6 +91,9 @@ def evaluate_model(model, X_test, y_test):
 
 
 def save_model(model, model_filepath):
+    '''
+    Save model 
+    '''
       pickle.dump(model, open(model_filepath, 'wb'))
 
 
