@@ -71,6 +71,11 @@ def clean_data(df):
 
 
 def save_data(df, database_filename):
+    '''
+    Save data inot a file
+    input: cleaned dataset
+    output: file 
+    '''
     engine = create_engine('sqlite:///'+database_filename)
     df.to_sql('df_new', engine,if_exists = 'replace', index=False) 
 
